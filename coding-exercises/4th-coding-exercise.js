@@ -1,6 +1,8 @@
 // Colt Steele Udemy JavaScript DSA Course, Coding Exercise 4
+// got it with a little help, it seems that I like the frequency counter, storing the key and values into an object quite a bit
 
 function areThereDuplicates() {
+
   let collection = {}
   for (let val in arguments) {
     collection[arguments[val]]
