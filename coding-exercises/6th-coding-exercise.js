@@ -1,4 +1,4 @@
-// Colt Steele Udemy JavaScript DSA Course, Coding Exercise 5
+// Colt Steele Udemy JavaScript DSA Course, Coding Exercise 6
 // passed on first try, did not need to look at and follow the multiple_pointers solution, which is great!
 // I did have a problem of putting the solution code at the bottom instead of withing the while loop, minor issue but worth looking at!!!
 
