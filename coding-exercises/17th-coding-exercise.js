@@ -1,4 +1,4 @@
-// Colt Steele Udemy JavaScript DSA Course, Coding Exercise 16
+// Colt Steele Udemy JavaScript DSA Course, Coding Exercise 17
 
 const isOdd = val => val % 2 !== 0;
 
