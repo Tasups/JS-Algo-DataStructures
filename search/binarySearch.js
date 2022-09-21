@@ -7,6 +7,7 @@ function binarySearch(arr, elem) {
   let middle = Math.floor((end + start) / 2);
   // while we haven't found the elem and start is still less than or equal to end(because if it is more than the end, we haven't found the elem and won't go infi)
   while (arr[middle] !== elem && start <= end) {
+    console.log(start, middle, end)
     // if the elem is less than the middle, the end becomes the middle minus one
     if (elem < arr[middle]) end = middle - 1;
     // else, we make the start bigger, to the middle plus one
@@ -19,6 +20,7 @@ function binarySearch(arr, elem) {
   return arr[middle] === elem ? middle : -1;
 }
 
-let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 
-console.log(binarySearch(arr, 9));
+
+console.log(binarySearch(arr, 2));
