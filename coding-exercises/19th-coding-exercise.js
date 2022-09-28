@@ -6,36 +6,28 @@
 
 // MY ATTEMPT
 function capitalizeFirst(arr){
+  let arrRep = arr
   let newArr = []
-  console.log(arr.length)
-  if(arr.length === 0) return
+  if(arrRep.length === 0) return
   function helper(){
-    if(arr.length > 0){
-      newArr.push(arr[0].charAt(0).toLocaleUpperCase() + arr[0].slice(1))
+    if(arrRep.length > 0){
+      // take the first element in the array and uppercase the first letter then add the rest of the 
+      // first element to the capitalized first letter and push it onto newArr
+      console.log(arrRep.length)
+      newArr.push(arrRep[0].charAt(0).toUpperCase() + arrRep[0].slice(1))
+      console.log(arrRep)
       console.log(newArr)
       helper(arr.slice(1))
     }
   }
+  console.log(newArr)
+   return newArr
 }
 
 //COLT'S SOLUTION
 
-function capitalizeWords (array) {
-  if (array.length === 1) {
-    console.log([array[0].toUpperCase()])
-    return [array[0].toUpperCase()];
-  }
-  let res = capitalizeWords(array.slice(0, -1));
-  res.push(array.slice(array.length-1)[0].toUpperCase());
-  console.log(res)
-  return res;
- 
-}
 
-capitalizeWords(arr)
-
-
-console.log(capitalizeFirst(['car','taco','banana'])); // ['Car','Taco','Banana']
+capitalizeFirst(['car','taco','banana']); // ['Car','Taco','Banana']
 
 
 /*
