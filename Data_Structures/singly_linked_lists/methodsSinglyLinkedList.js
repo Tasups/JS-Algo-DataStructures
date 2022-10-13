@@ -54,16 +54,50 @@ class SinglyLinkedList {
     return current
   }
   
+  shift(){
+    if(!this.head) return undefined
+    let oldHead = this.head
+    this.head = oldHead.next
+    this.length--
+    if(this.length === 0){
+      this.head = null
+      this.tail =null
+    }
+    return oldHead
+  }
+  
+  push(val){
+    let newNode = new Node(val)
+    if (!this.head) {
+      this.head = newNode
+      this.tail = newNode // or this.tail = this.head
+    } else {
+      this.tail.next = newNode
+      this.tail = newNode
+    }
+    this.length += 1
+    return this
+  }
+  
+  unshift(val){
+    let newNode = new Node(val)
+    if(!this.head){
+      this.head = newNode
+      this.tail = newNode
+    } else {
+      newNode.next = this.head
+      this.head = newNode
+      this.length++
+    }
+    return this
+  }
+  
 }
 
 let list = new SinglyLinkedList();
-list.push("HELLO");
-list.push("GOODBYE");
-list.push("!");
+list.push("I want to go back");
+list.push("and woo those women");
+list.push("whom I missed.");
+list.unshift("One wish for me...")
 list.traverse()
-console.log(list.pop());
-console.log(list.pop());
 console.log(list)
-list.pop()
-console.log(list)
-console.log(list.pop())
