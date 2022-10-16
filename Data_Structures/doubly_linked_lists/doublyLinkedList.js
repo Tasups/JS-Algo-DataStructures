@@ -28,6 +28,22 @@ class DoublyLinkedList {
     this.length++
     return this
   }
+
+  pop() {
+    if (!this.tail) return undefined
+    let poppedNode = this.tail
+    if (this.length === 1) {
+      this.head = null
+      this.tail = null
+    } else {
+       this.tail = poppedNode.prev;
+       this.tail.next = null;
+       poppedNode.prev = null;
+    }
+    this.length--;
+    return poppedNode;
+  }
+
 }
 
 let list = new DoublyLinkedList()
@@ -35,4 +51,6 @@ list.push("ONE")
 list.push("TWO");
 list.push("THREE");
 list.push("GO!!!");
+console.log(list)
+console.log(list.pop())
 console.log(list)
