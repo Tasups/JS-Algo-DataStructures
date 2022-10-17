@@ -97,17 +97,45 @@ class DoublyLinkedList {
   
   set(index, value) {
     let updatedNode = this.get(index)
-    if(updatedNode){
+    if(updatedNode !== null){
       updatedNode.val = value
       return true
     }
     return false
   }
+  
+  insert(index, value) {
+    if (index < 0 || index > this.length) return null
+    if (index === 0) return !!this.unshift(value)
+    if (index === this.length) return !!this.push(value)
+
+    let newNode = new Node(value)
+    let beforeNode = this.get(index - 1)
+    let afterNode = beforeNode.next
+    
+    beforeNode.next = newNode
+    newNode.prev = beforeNode
+    newNode.next = afterNode
+    afterNode.prev = newNode
+    this.length++
+    return true
+  }
+  
+   traverse(){
+    let current = this.head
+    while(current){
+      console.log(current.val)
+      current = current.next
+    }
+  }
 
 }
 
 let list = new DoublyLinkedList()
-list.push("ONE")
-list.push("TWO");
-list.push("THREE");
-list.push("GO!!!");
+list.push("Harry")
+list.push("Ron");
+list.push("Hermione");
+list.push("Dumbledore");
+list.traverse()
+console.log(list.insert(5, "Tonks"))
+list.traverse()
