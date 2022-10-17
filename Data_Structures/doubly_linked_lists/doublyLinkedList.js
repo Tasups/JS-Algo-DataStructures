@@ -95,8 +95,13 @@ class DoublyLinkedList {
     }
   }
   
-  set(index, val) {
-    if (index < 0 || index >= this.length) return null
+  set(index, value) {
+    let updatedNode = this.get(index)
+    if(updatedNode){
+      updatedNode.val = value
+      return true
+    }
+    return false
   }
 
 }
