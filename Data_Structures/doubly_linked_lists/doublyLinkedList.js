@@ -51,12 +51,52 @@ class DoublyLinkedList {
       this.head = null
       this.tail = null
     } else {
-       this.head = oldHead.next
+      this.head = oldHead.next
       this.head.prev = null
       oldHead.next = null
     }
     this.length--
     return oldHead
+  }
+  
+  unshift(val) {
+    let newNode = new Node(val)
+    if (!this.head){
+      this.head = newNode
+      this.tail = newNode
+    } else {
+      this.head.prev = newNode
+      newNode.next = this.head
+      this.head = newNode
+    }
+    this.length++
+    return this
+  }
+  
+  get(index) {
+    if (index < 0 || index >= this.length) return null
+    if (index <= (this.length / 2)){
+      let counter = 0
+      let current = this.head
+      while(counter !== index) {
+        current = current.next
+        counter++
+      }
+      return current
+    } 
+    if (index > (this.length / 2)){
+      let counter = this.length - 1
+      let current = this.tail
+      while(counter !== index){
+        current = current.prev
+        counter--
+      }
+      return current
+    }
+  }
+  
+  set(index, val) {
+    if (index < 0 || index >= this.length) return null
   }
 
 }
@@ -66,7 +106,3 @@ list.push("ONE")
 list.push("TWO");
 list.push("THREE");
 list.push("GO!!!");
-console.log(list)
-console.log(list.shift())
-
-console.log(list)
