@@ -121,12 +121,29 @@ class DoublyLinkedList {
     return true
   }
   
-   traverse(){
+   forwardTraverse(){
     let current = this.head
     while(current){
       console.log(current.val)
       current = current.next
     }
+  }
+
+  remove(index) {
+    if (index < 0 || index >= this.length) return null
+    if (index === 0) return !!this.shift()
+    if (index === this.length - 1) return !!this.pop()
+    
+    let nodeToRemove = this.get(index)
+    let beforeNode = nodeToRemove.prev 
+    let nextNode = nodeToRemove.next
+
+    beforeNode.next = nextNode
+    nextNode.prev = beforeNode
+    nodeToRemove.next = null
+    nodeToRemove.prev = null
+    this.length--
+    return nodeToRemove;
   }
 
 }
@@ -136,6 +153,6 @@ list.push("Harry")
 list.push("Ron");
 list.push("Hermione");
 list.push("Dumbledore");
-list.traverse()
-console.log(list.insert(5, "Tonks"))
-list.traverse()
+console.log(list.remove(1))
+
+
