@@ -1,5 +1,4 @@
 // SINGLY LINKED LIST DATA STRUCTURE
-// PUSH METHOD? ADDED
 
 class Node {
   constructor(val){
