@@ -39,17 +39,34 @@ class BinarySearchTree{
       }
     }
   }
+  find(value) {
+    if (this.root === null) return false
+    let current = this.root
+    let found = false
+    while (current && !found) {
+      if (value < current.value) {
+        current = current.left
+      } else if (value > current.value) {
+        current = current.right
+      } else {
+        found = true
+      }
+    }
+    if(!found) return undefined
+    return current
+  }
 }
 
-let BST = new BinarySearchTree()
+let tree = new BinarySearchTree()
 
-BST.insert(10)
-console.log(BST.insert(5));
-console.log(BST.insert(4));
-console.log(BST.insert(7));
-console.log(BST.insert(5));
-console.log(BST.insert(15));
-console.log(BST.insert(12));
-console.log(BST.insert(5));
-console.log(BST.insert(18));
+tree.insert(10);
+tree.insert(5);
+tree.insert(15);
+tree.insert(3);
+tree.insert(17);
+tree.insert(6);
+tree.insert(12);
 
+
+console.log(tree.find(15));
+console.log(tree.find(50));
