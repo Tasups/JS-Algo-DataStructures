@@ -41,6 +41,7 @@ class Stack {
     this.size--
     return removedNode.value
   }
+
 }
 
 let stack = new Stack()
