@@ -1,4 +1,4 @@
-// QUEUE DATA STRUCTURE
+// QUEUE DATA STRUCTURE FIRST IN FIRST OUT
 
 class Node{
   constructor(value){
