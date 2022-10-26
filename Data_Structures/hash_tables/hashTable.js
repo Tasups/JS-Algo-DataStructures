@@ -38,6 +38,34 @@ class HashTable {
     }
     return undefined
   }
+  
+  values(){
+    let valuesArr = []
+    for(let i = 0; i < this.keyMap.length; i++){
+      if(this.keyMap[i]){
+        for(let j = 0; j < this.keyMap[i].length; j++){
+          if(!valuesArr.includes(this.keyMap[i][j][1])){
+            valuesArr.push(this.keyMap[i][j][1])
+          }
+        }
+      }
+    }
+    return valuesArr
+  }
+  
+  keys(){
+    let keysArr = []
+    for(let i = 0; i < this.keyMap.length; i++){
+      if(this.keyMap[i]){
+        for(let j = 0; j < this.keyMap[i].length; j++){
+          if(!keysArr.includes(this.keyMap[i][j][0])){
+            keysArr.push(this.keyMap[i][j][0])
+          }
+        }
+      }
+    }
+    return keysArr
+  }
 }
 
 let ht = new HashTable(17)
@@ -48,7 +76,9 @@ ht.set("salmon", "#FA8072")
 ht.set("lightcoral", "#F08080")
 ht.set("mediumvioletred", "#C71585")
 ht.set("plum", "#DDA0DD")
+ht.set("purple", "#DDA0DD")
+ht.set("violet", "#DDA0DD")
 
-ht.set("are we done?", "yessir!")
+console.log(ht.keys())
+console.log(ht.values())
 
-console.log(ht.get("are we done?"))
