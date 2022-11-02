@@ -53,10 +53,46 @@ class Graph{
     console.log(undefined)
     return undefined
   }
-
+  
+  depthFTRecur(start){
+    const result = []
+    const visited = {}
+    const adjacencyList = this.adjacencyList
+    
+    function dfs(vertex){
+      if(!vertex) return null
+        visited[vertex] = true
+        result.push(vertex)
+        adjacencyList[vertex].forEach(neighbor => {
+          if(!visited[neighbor]) return dfs(neighbor)
+        })
+    }  
+    dfs(start)
+    return result
+  }
 }
 
 let g = new Graph()
+
+g.addVertex("A")
+g.addVertex("B")
+g.addVertex("C")
+g.addVertex("D")
+g.addVertex("E")
+g.addVertex("F")
+
+g.addEdge("A", "B")
+g.addEdge("A", "C")
+g.addEdge("B", "D")
+g.addEdge("C", "E")
+g.addEdge("D", "E")
+g.addEdge("D", "F")
+g.addEdge("E", "F")
+
+console.log(g)
+
+console.log(g.depthFTRecur("A"))
+
 /*
   g.addVertex("Tokyo")
   g.addVertex("San Francisco")
@@ -72,9 +108,8 @@ let g = new Graph()
   g.removeEdge("San Francisco", "Fresno")
   console.log(g)
   console.log(g.removeEdge("Vienna", "Austria"))
-*/
-
-g.addVertex("Dallas")
+  
+  g.addVertex("Dallas")
 g.addVertex("Tokyo")
 g.addVertex("Aspen")
 g.addVertex("Los Angeles")
@@ -88,3 +123,4 @@ g.addEdge("Los Angeles", "Aspen")
 console.log(g)
 g.removeVertex("Shelby")
 console.log(g)
+*/
