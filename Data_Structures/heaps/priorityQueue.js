@@ -3,6 +3,13 @@
 // ALSO, AS EXPRESSED IN AN ARRAY, THE PARENT CAN BE FOUND BY THE FIRST CHILD AT MATH.FLOOR(N - 1 / 2), 
 // AND THE SECOND CHILD AT MATH.FLOOR(N - 2 / 2)
 
+class Node{
+  constructor(val, priority){
+    this.value = val
+    this.priority = priority
+  }
+}
+
 class PriorityQueue{
   constructor(){
     this.values = []
@@ -72,12 +79,6 @@ class PriorityQueue{
   }
 }
 
-class Node{
-  constructor(val, priority){
-    this.value = val
-    this.priority = priority
-  }
-}
 
 let ER = new PriorityQueue()
 ER.enqueue("common cold", 5)

@@ -74,6 +74,7 @@ class Graph{
     let currentVertex
     
     visited[start] = true
+    
     while(stack.length){
       currentVertex = stack.pop()
       result.push(currentVertex)
@@ -86,6 +87,28 @@ class Graph{
     }
     return result
   }
+  
+  breadthFirstTraversal(start){
+    const queue = [start]
+    const result = []
+    const visited = {}
+    let currentVertex
+    
+    visited[start] = true
+    
+    while(queue.length){
+      currentVertex = queue.shift()
+      result.push(currentVertex)
+      this.adjacencyList[currentVertex].forEach(neighbor => {
+        if(!visited[neighbor]){
+          visited[neighbor] = true
+          queue.push(neighbor)
+        }
+      })
+    }
+    return result
+  }
+  
 }
 
 let g = new Graph()
@@ -107,8 +130,9 @@ g.addEdge("E", "F")
 
 // console.log(g)
 
-console.log(g.depthFTRecur("A"))
-console.log(g.depthFTIter("A"))
+// console.log(g.depthFTRecur("A"))
+// console.log(g.depthFTIter("A"))
+console.log(g.breadthFirstTraversal("A"))
 
 /*
   g.addVertex("Tokyo")
