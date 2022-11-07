@@ -17,7 +17,6 @@ class Graph{
       this.adjacencyList[v1].push(v2)
       this.adjacencyList[v2].push(v1)
     }
-    console.log(undefined)
     return undefined
   }
   // this is for a directed graph, where you would only make an edge connect from one to another and 
@@ -26,7 +25,6 @@ class Graph{
     if(this.adjacencyList[v1] && this.adjacencyList[v2]){
       this.adjacencyList[v1].push(v2)
     }
-    console.log(undefined)
     return undefined
   }
   
@@ -35,7 +33,6 @@ class Graph{
       this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter(v => v !== vertex2)
       this.adjacencyList[vertex2] = this.adjacencyList[vertex2].filter(v => v !== vertex1)
     }
-    console.log(undefined)
     return undefined
   }
   
@@ -50,7 +47,6 @@ class Graph{
       }
       delete this.adjacencyList[vertex]
     }
-    console.log(undefined)
     return undefined
   }
   
@@ -68,6 +64,26 @@ class Graph{
         })
     }  
     dfs(start)
+    return result
+  }
+  
+  depthFTIter(start){
+    const stack = [start]
+    const result = []
+    const visited = {}
+    let currentVertex
+    
+    visited[start] = true
+    while(stack.length){
+      currentVertex = stack.pop()
+      result.push(currentVertex)
+      this.adjacencyList[currentVertex].forEach(neighbor => {
+        if(!visited[neighbor]){
+          visited[neighbor] = true
+          stack.push(neighbor)
+        }
+      })
+    }
     return result
   }
 }
@@ -89,9 +105,10 @@ g.addEdge("D", "E")
 g.addEdge("D", "F")
 g.addEdge("E", "F")
 
-console.log(g)
+// console.log(g)
 
 console.log(g.depthFTRecur("A"))
+console.log(g.depthFTIter("A"))
 
 /*
   g.addVertex("Tokyo")
