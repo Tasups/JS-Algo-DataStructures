@@ -1,20 +1,4 @@
-/*
-Implement the following on the SinglyLinkedList class:
-push
-
-This function should take in a value and add a node to the end of the SinglyLinkedList. It should return the SinglyLinkedList.
-
-Examples
-
-var singlyLinkedList = new SinglyLinkedList();
- 
-singlyLinkedList.push(5); // singlyLinkedList
-singlyLinkedList.length; // 1
-singlyLinkedList.head.val; // 5
-singlyLinkedList.tail.val; // 5
- 
-singlyLinkedList.push(10); // singlyLinkedList
-*/
+// SINGLY LINKED LIST EXERCISES
 
 //  GOT IT PRETTY EASILY, HOWEVER, I NEED TO REMEMBER TO USE ELSE!!!!!
 
@@ -31,7 +15,8 @@ class SinglyLinkedList{
     this.tail = null;
     this.length = 0;
   }
-    
+  // PUSH EXERCISE
+  // PUSH WAS EASY BUT FORGOT TO IMPLEMENT ELSE AFTER IF STATEMENT
   push(val){
     let newNode = new Node(val)
     if(!this.head){
@@ -45,5 +30,46 @@ class SinglyLinkedList{
         this.length++
     }
     return this
+  }
+  
+  pop(){
+    if(!this.head) return undefined
+    let current = this.head
+    let newTail = current
+    while(current.next){
+      newTail = current
+      current = current.next
+    }
+    this.tail = newTail
+    this.tail.next = null
+    this.length--
+    if(this.length === 0){
+      this.head = null
+      this.tail = null
+    }
+    return current
+  }
+  // POP EXERCISE -- return the node removed
+  // THERE IS A SLIGHTLY DIFFERENT SOLUTION IN THE SLL UNDER DATASTRUCTURES FILE BUT THIS WORKS!
+  pop(){
+    if(!this.head) return undefined
+    if(this.length === 1){
+      let oldHead = this.head
+      this.head = null
+      this.tail = null
+      this.length--
+      return oldHead
+    } else {
+      let current = this.head
+      let newTail = current.next
+      while(current.next){
+        newTail = current
+        current = current.next
+      }
+      this.tail = newTail
+      this.tail.next = null
+      this.length--
+      return current
+    }
   }
 }

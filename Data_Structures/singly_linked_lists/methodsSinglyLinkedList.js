@@ -174,3 +174,4 @@ list.reverse()
 list.traverse()
 console.log(list.head)
 console.log(list.tail)
+
