@@ -169,6 +169,7 @@ let list = new SinglyLinkedList();
 list.push("ONE");
 list.push("TWO");
 list.push("THREE")
+list.get(2)
 list.traverse()
 list.reverse()
 list.traverse()

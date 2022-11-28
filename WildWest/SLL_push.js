@@ -72,4 +72,24 @@ class SinglyLinkedList{
       return current
     }
   }
+  // get exercise actually evaluated out to what is a set exercise, seems that there may be a problem with the tests
+  get(index){
+    if(index < 0 || index > this.length) return undefined
+    let counter = 0
+    let current = this.head
+    while(current !== index){
+      current = current.next
+      counter++
+    }
+    return current
+  }
+  
+  insert(index, value){
+    if(index < 0 || index > this.length) return false
+    if(this.length === index) return !!this.push(value)
+    
+    let newNode = new Node(value)
+    let prevNode = this.head
+    
+  }
 }
