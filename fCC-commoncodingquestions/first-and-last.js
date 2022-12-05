@@ -14,27 +14,24 @@
 // it does take me longer than I would like!
 
 function firstAndLast (arr, target) {
-  console.log("START")
-  console.log(`array = ${arr} and target = ${target}`)
   let first = 0
   let last = 0
   let firstInstance = 0
   for(let i = 0; i < arr.length; i++) {
-    console.log(`i = ${i}`)
-    console.log(`firstInstance = ${firstInstance}`)
-    console.log(`first = ${first}`)
-    console.log(`last = ${last}`)
     if(firstInstance === 0 && arr[i] === target){
       first = i
       last = i
       firstInstance = 1
     } else if(arr[i] === target) {
       last = i
-    }
+    } 
   }
+  if(firstInstance === 0) return [-1,-1]
   return [first, last]
 }
 
 
 
 console.log(firstAndLast([2,4,5,5,5,5,5,7,9,9], 5))
+console.log(firstAndLast([2,4,5,5,5,5,5,7,9,9], 9))
+console.log(firstAndLast([2,4,5,5,5,5,5,7,9,9], 3))
