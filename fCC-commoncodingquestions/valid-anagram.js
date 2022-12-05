@@ -12,7 +12,7 @@
 // the char shows up. This should be an O(n) time complexity as we're going through two loops, which is 
 // 2n, or n. There can be some shortening of the time by short-circuiting in the second loop if there is
 // no char found in the storage object. Else, I believe it is an O(n) and a space complexity of O(n).
-// hashtable for storage
+// hashtable for storage. Did this on my own and am very proud!! I knew this one, so it wasn't very hard.
 
 function validAnagram (str1, str2) {
  
