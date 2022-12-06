@@ -1,6 +1,7 @@
 function binarySearch(arr, elem) {
   let start = 0
   let end = arr.length - 1
+  // could just use end and not add start. Because start is 0!!
   let middle = Math.floor((end + start) / 2)
   while (arr[middle] !== elem && start <= end) {
     if (elem < arr[middle]) end = middle - 1
