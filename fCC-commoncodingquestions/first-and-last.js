@@ -30,8 +30,67 @@ function firstAndLast (arr, target) {
   return [first, last]
 }
 
+function binaryFirstAndLast (arr, target) {
+  let start = 0
+  let end = arr.length - 1
+  let middle = Math.floor((start + end) / 2)
+  while(arr[middle] !== target && start <= end){
+    if(target < arr[middle]) {
+      end = middle - 1
+    } else {
+      start = middle + 1
+    }
+    middle = Math.floor((start + end) / 2)
+  }
+  const result = arr[middle] === target ? target : -1
+  return result
+}
 
+function fromTheEndFirstAndLast (arr, target) {
+ 
+  let first
+  let last
+  let frontCurrent = 0
+  let backCurrent = arr.length - 1
+  while(arr[frontCurrent] !== target  && frontCurrent <= arr.length){
+    if(frontCurrent === arr.length - 1) return [-1,-1]
+    frontCurrent++
+  }
+  first = frontCurrent
+  while(arr[backCurrent] !== target){
+    backCurrent--
+  }
+  last = backCurrent
+  const result = [first, last]
+ 
+  return result
+}
 
-console.log(firstAndLast([2,4,5,5,5,5,5,7,9,9], 5))
-console.log(firstAndLast([2,4,5,5,5,5,5,7,9,9], 9))
-console.log(firstAndLast([2,4,5,5,5,5,5,7,9,9], 3))
+console.log("firstAndLast times")
+console.time("firstAndLastTimer")
+console.log(firstAndLast([2,4,5,5,5,5,5,7,9,9], 5)) // -> [2,6]
+console.timeEnd("firstAndLastTimer")
+console.time("firstAndLastTimer")
+console.log(firstAndLast([2,4,5,5,5,5,5,7,9,9], 9)) // -> [8,9]
+console.timeEnd("firstAndLastTimer")
+console.time("firstAndLastTimer")
+console.log(firstAndLast([2,4,5,5,5,5,5,7,9,9], 3)) // -> [-1,-1]
+console.timeEnd("firstAndLastTimer")
+
+console.log("*****************************************")
+
+console.log("fromTheEndFirstAndLast times")
+console.time("fromTheEndFirstAndLastTimer")
+console.log(fromTheEndFirstAndLast([2,4,5,5,5,5,5,7,9,9], 5)) // -> [2,6]
+console.timeEnd("fromTheEndFirstAndLastTimer")
+console.time("fromTheEndFirstAndLastTimer")
+console.log(fromTheEndFirstAndLast([2,4,5,5,5,5,5,7,9,9], 9)) // -> [8,9]
+console.timeEnd("fromTheEndFirstAndLastTimer")
+console.time("fromTheEndFirstAndLastTimer")
+console.log(fromTheEndFirstAndLast([2,4,5,5,5,5,5,7,9,9], 3)) // -> [-1,-1]
+console.timeEnd("fromTheEndFirstAndLastTimer")
+
+// console.log(binaryFirstAndLast([1,2,3,4,5,6], 1))
+// console.log(binaryFirstAndLast([1,2,3,4,5,6], 3))
+// console.log(binaryFirstAndLast([1,2,3,4,5,6], 6))
+// console.log(binaryFirstAndLast([1,2,3,4,5,6], 7))
