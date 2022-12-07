@@ -47,10 +47,12 @@ function findKthLargest(arr, k){
   return result
 }
 
-const arr1 = [1,5,4,3,2]
+const arr1 = [1,5,4,3,2, 0, -5]
 
 console.log(findKthLargest(arr1, 1))
 console.log(findKthLargest(arr1, 2))
 console.log(findKthLargest(arr1, 3))
 console.log(findKthLargest(arr1, 4))
 console.log(findKthLargest(arr1, 5))
+console.log(findKthLargest(arr1, 6))
+console.log(findKthLargest(arr1, 7))
